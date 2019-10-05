@@ -14,7 +14,7 @@ install:
   - wget -c "https://github.com/chigraph/precompiled-kf5-linux/releases/download/precompiled/kf5-gcc6-linux64-release.tar.xz"
   - tar xfo kf5-gcc6-linux64-release.tar.xz
   - ls -lh . || true
-  - sudo mkdir -p /root/kf5-release && chmod -R +rwx /root/ # Why is this needed? FIXME
+  - sudo mkdir -p /root/kf5-release && sudo chmod -R +rwx /root/ # Why is this needed? FIXME
   - ls -lh /root/kf5-release/ || true
   - sudo cp -Rf root/kf5-release/* /opt/qt*/
   
