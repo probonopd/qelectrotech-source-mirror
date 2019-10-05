@@ -8,9 +8,13 @@ before_install:
   - sudo apt-get update -qq
 
 install:
-  - sudo apt-get -y install qt510base libgl1-mesa-dev
+  - sudo apt-get -y install qt510base qt510svg libgl1-mesa-dev
   - source /opt/qt*/bin/qt*-env.sh
-
+  - # Precompiled KF5 from https://github.com/KDAB/hotspot/blob/master/.travis.yml
+  - wget -c "https://github.com/chigraph/precompiled-kf5-linux/releases/download/precompiled/kf5-gcc6-linux64-release.tar.xz"
+  - tar xf kf5-gcc6-linux64-release.tar.xz
+  - sudo cp -Rf root/kf5-release/* /opt/qt*/
+  
 script:
   - qmake CONFIG+=release PREFIX=/usr
   - make -j$(nproc)
