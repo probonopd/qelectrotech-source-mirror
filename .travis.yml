@@ -12,7 +12,7 @@ install:
   - source /opt/qt*/bin/qt*-env.sh
   - # Precompiled KF5 from https://github.com/KDAB/hotspot/blob/master/.travis.yml
   - wget -c "https://github.com/chigraph/precompiled-kf5-linux/releases/download/precompiled/kf5-gcc6-linux64-release.tar.xz"
-  - tar xf kf5-gcc6-linux64-release.tar.xz
+  - tar xf --no-same-owner kf5-gcc6-linux64-release.tar.xz
   - sudo cp -Rf root/kf5-release/* /opt/qt*/
   
 script:
